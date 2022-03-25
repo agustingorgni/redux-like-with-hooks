@@ -1,21 +1,25 @@
 import React from 'react';
-import { deleteTask, clearAll } from '../actions';
+import { deleteTask } from '../actions';
 import { useTasksContext } from '../contexts/TasksContext';
 
 export const TasksList = () => {
     const { tasks, dispatch } = useTasksContext();
     return (
-        <>
-            <ul>
+        <div className="list-container">
             {
-                tasks.map(task => {
+                tasks.length > 0 ? tasks.map(task => {
                     return (
-                        <li key={task.id}>{task.task}<button onClick={() => dispatch(deleteTask(task.id))}>X</button></li>
+                        <div className="item">
+                            <div className="actions">
+                                <button onClick={() => dispatch(deleteTask(task.id))}>X</button>
+                            </div>
+                            <div className="text">
+                                {task.task}
+                            </div>
+                        </div>
                     );
-                })
+                }) : <div className="text">No hay tareas por hacer</div>
             }
-            </ul>
-            <button onClick={() => dispatch(clearAll())}>Clear all</button>
-        </>
+        </div>
     )
 };

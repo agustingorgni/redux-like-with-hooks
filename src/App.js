@@ -9,14 +9,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           Listado de tareas
-          <p>
-            Contenido
-          </p>
-          <TasksList />
-          <p>
-            <NewTask />
-          </p>
         </header>
+        <div className="App-content">
+          <TasksList />
+        </div>
+        <div className="App-footer">
+          <NewTask />
+        </div>
       </div>
     </TasksProvider>
   );
