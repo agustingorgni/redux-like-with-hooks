@@ -18,7 +18,7 @@ export const TasksList = () => {
                             </div>
                         </div>
                     );
-                }) : <div className="text">No hay tareas por hacer</div>
+                }) : <div className="text empty">No hay tareas por hacer</div>
             }
         </div>
     )
